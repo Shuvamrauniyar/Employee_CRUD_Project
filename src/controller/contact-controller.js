@@ -1,12 +1,12 @@
-const employeeRepo = require('../repository/employee-repository');
+const contactRepo = require('../repository/contact-repository');
 
-const createEmp = async(req,res)=>{
+const createContact = async(req,res)=>{
     try {
         // console.log(req.body);
-        const response = await employeeRepo.createEmp(req.body);
+        const response = await contactRepo.createContact(req.body);
         return res.status(200).json({
             success: true,
-            message: 'Employee data created successfully',
+            message: 'Contact data created successfully',
             err:{},
             data:response
         });
@@ -23,10 +23,10 @@ const createEmp = async(req,res)=>{
 const getAll = async(req,res)=>{
     try {
         // console.log(req.body);
-        const response = await employeeRepo.getAll(req.params.page);
+        const response = await contactRepo.getAll(req.params.page);
         return res.status(200).json({
             success: true,
-            message: 'Employee data fetched successfully',
+            message: 'Contact data fetched successfully',
             err:{},
             data:response
         });
@@ -43,10 +43,10 @@ const getAll = async(req,res)=>{
 const update = async(req,res)=>{
     try {
         // console.log(req.body);
-        const response = await employeeRepo.update(req.params.id,req.body);
+        const response = await contactRepo.update(req.params.emp_id,req.body);
         return res.status(200).json({
             success: true,
-            message: 'Employee data updated successfully',
+            message: 'Contact data updated successfully',
             err:{},
             data:response
         });
@@ -63,10 +63,10 @@ const update = async(req,res)=>{
 const delete_data = async(req,res)=>{
     try {
         // console.log(req.body);
-        const response = await employeeRepo.delete_data(req.params.id);
+        const response = await contactRepo.delete_data(req.params.emp_id);
         return res.status(200).json({
             success: true,
-            message: 'Employee data deleted successfully',
+            message: 'Contact data deleted successfully',
             err:{},
             data:response
         });
@@ -81,7 +81,7 @@ const delete_data = async(req,res)=>{
     }
 }
 module.exports = {
-    createEmp,
+    createContact,
     getAll,
     update,
     delete_data

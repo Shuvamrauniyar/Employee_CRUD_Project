@@ -1,8 +1,8 @@
-const {EmpDetails, ContactDetails} = require('../models/index')
+const {ContactDetails} = require('../models/index')
 
-const createEmp = async(data)=>{
+const createContact = async(data)=>{
     try {
-        const response = await EmpDetails.create(data);
+        const response = await ContactDetails.create(data);
         console.log(response);
         return response;
     } catch (error) {
@@ -14,10 +14,10 @@ const getAll = async(page)=>{
     try {
         limit = 5;
         offset = limit * (page-1) //oofset means no. records to be skipped
-        const response = await EmpDetails.findAll({
+        const response = await ContactDetails.findAll({
             limit: limit,
             offset: offset,
-            $sort: {id: 1}
+            $sort: {emp_id: 1}
         });
         console.log(response);
         return response;
@@ -28,9 +28,9 @@ const getAll = async(page)=>{
 }
 const update = async(emp_id,data)=>{
     try {
-        const emp_data = await EmpDetails.update(data,{
+        const emp_data = await ContactDetails.update(data,{
             where:{
-                id : emp_id
+                emp_id : emp_id
             },
         });
         return emp_data;
@@ -43,9 +43,9 @@ const update = async(emp_id,data)=>{
 }
 const delete_data = async(emp_id)=>{
     try {
-        const response = await EmpDetails.destroy({
+        const response = await ContactDetails.destroy({
             where: {
-                id: emp_id
+                emp_id: emp_id
             },
         });
         // console.log(response);
@@ -56,7 +56,7 @@ const delete_data = async(emp_id)=>{
     }
 }
 module.exports = {
-    createEmp,
+    createContact,
     getAll,
     update,
     delete_data
