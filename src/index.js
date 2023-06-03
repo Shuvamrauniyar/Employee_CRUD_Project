@@ -5,7 +5,7 @@ const ApiRoutes = require('./routes/index');
 
 //const app = express();
 // console.log('port is ',PORT);
-const startServer = async()=> {
+const startServer = async() => {
   const app = express();
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));

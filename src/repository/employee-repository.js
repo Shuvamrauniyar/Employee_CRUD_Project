@@ -12,10 +12,10 @@ const createEmp = async(data)=>{
 }
 const getAll = async(page)=>{
     try {
-        limit = 5;
+        limit = 5; //page limit is 5 records per page
         offset = limit * (page-1) //oofset means no. records to be skipped
         const response = await EmpDetails.findAll({
-            limit: limit,
+            limit: limit, 
             offset: offset,
             $sort: {id: 1}
         });
