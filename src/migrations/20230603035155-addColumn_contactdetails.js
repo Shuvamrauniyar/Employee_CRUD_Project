@@ -13,9 +13,11 @@ module.exports = {
      */
     await queryInterface.addColumn('ContactDetails','emp_id',{
       type: INTEGER,
+      onDelete: 'CASCADE',
       references: {
         model: 'EmpDetails',
-        key: 'emp_id'
+        key: 'id',
+        as: 'emp_id'
       },
       allowNull: false
     })
@@ -28,5 +30,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
+    await queryInterface.removeColumn('ContactDetails','emp_id');
   }
 };
